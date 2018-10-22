@@ -22,9 +22,9 @@
         <div class="inner">
           <h3 class="masthead-brand">February</h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">Sign-In</a>
-            <a class="nav-link" href="#">Connexion</a>
+              <a class="nav-link active" href="./index.php">Home</a>
+              <a class="nav-link" href="./pages/login.php">Sign-Up</a>
+              <a class="nav-link" href="./pages/connexion.php">Connexion</a>
           </nav>
         </div>
       </header>
