@@ -33,7 +33,7 @@
         <h1 class="cover-heading">February Project.</h1>
         <p class="lead">This game is our Php February Project.</p>
         <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Play</a>
+            <a href="./pages/connexion.php" class="btn btn-lg btn-secondary">Play</a>
         </p>
       </main>
 
