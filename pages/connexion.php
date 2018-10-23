@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <script src="../js/verifi.js"></script>
     </head>
 
     <body class="text-center">
@@ -36,7 +37,7 @@
                 <div class="logo">login</div>
                 <!-- Main Form -->
                 <div class="login-form-1">
-                    <form id="login-form" class="text-left">
+                    <form action="../php/loginn.php" method="post" id="login-form" class="text-left" enctype="multipart/form-data">
                         <div class="login-form-main-message"></div>
                         <div class="main-login-form">
                             <div class="login-group">
@@ -62,6 +63,7 @@
                 </div>
                 <!-- end:Main Form -->
             </div>
+            
 
             <footer class="mastfoot mt-auto">
                 <div class="inner">

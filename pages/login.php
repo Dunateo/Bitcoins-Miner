@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <script src="../js/verifi.js"></script>
     </head>
 
     <body class="text-center">
@@ -36,7 +37,7 @@
                 <div class="logo">register</div>
                 <!-- Main Form -->
                 <div class="login-form-1">
-                    <form id="register-form" class="text-left">
+                    <form action="../php/signup.php" method="post" id="login-form" id="register-form" class="text-left">
                         <div class="login-form-main-message"></div>
                         <div class="main-login-form">
                             <div class="login-group">
@@ -57,18 +58,7 @@
                                     <label for="reg_email" class="sr-only">Email</label>
                                     <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
                                 </div>
-                                <div class="form-group">
-                                    <label for="reg_fullname" class="sr-only">Full Name</label>
-                                    <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-                                </div>
-
-                                <div class="form-group login-group-checkbox">
-                                    <input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-                                    <label for="male">male</label>
-
-                                    <input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-                                    <label for="female">female</label>
-                                </div>
+                                
 
                                 <div class="form-group login-group-checkbox">
                                     <input type="checkbox" class="" id="reg_agree" name="reg_agree">
