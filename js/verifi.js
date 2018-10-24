@@ -1,49 +1,32 @@
 /* 
+<<<<<<< HEAD
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+=======
+ * Valentin Bru
+ * 
+>>>>>>> 97b49c556d3010ed4e69de98c1d71ea1be32dc25
  */
 
-(function($) {
-    "use strict";
-// Login Form
-//----------------------------------------------
-// Validation
-$("#login-form").validate({
-    rules: {
-        lg_username: "required",
-        lg_password: "required",
-    },
-    errorClass: "form-invalid"
-});
-//register
-// Validation
-$("#register-form").validate({
-    rules: {
-        reg_username: "required",
-        reg_password: {
-            required: true,
-            minlength: 5
-        },
-        reg_password_confirm: {
-            required: true,
-            minlength: 5,
-            equalTo: "#register-form [name=reg_password]"
-        },
-        reg_email: {
-            required: true,
-            email: true
-        },
-        reg_agree: "required",
-    },
-    errorClass: "form-invalid",
-    errorPlacement: function (label, element) {
-        if (element.attr("type") === "checkbox" || element.attr("type") === "radio") {
-            element.parent().append(label); // this would append the label after all your checkboxes/labels (so the error-label will be the last element in <div class="controls"> )
-        } else {
-            label.insertAfter(element); // standard behaviour
+window.addEventListener("load", function() {
+    window.document.querySelector("#login-form").addEventListener("type", function() {
+        if (window.document.querySelector("#lg_username").value === "" && window.document.querySelector("#lg_username").length >2 && window.document.querySelector("#lg_username").length < 25) {
+            alert("You have to enter the username"); // On affiche un message
         }
-    }
-});
-
-})(jQuery);
+        else if (window.document.querySelector("#reg_email").value === "" && window.document.querySelector("#reg_email").length >4) {
+            alert("Please enter a real email"); // On affiche un message
+        }
+        
+        else if(window.document.querySelector("#reg_username").value === "" && window.document.querySelector("#reg_username").length >2 && window.document.querySelector("#reg_username").length <25 ){
+            alert("You have to enter the username"); // On affiche un message
+        }
+        
+        else{
+             var question = "Souhaitez-vous réellement utiliser l'adresse suivante : " + window.document.querySelector("#i_email").value;
+             if (confirm(question)) {
+                 window.document.querySelector("#form_contact").submit(); // OK envoyer
+             }
+        }
+    }, false);
+}, false);
