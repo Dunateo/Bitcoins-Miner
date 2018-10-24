@@ -76,7 +76,7 @@
             </div>
             <footer class="mastfoot mt-auto">
                 <div class="inner">
-                    <p>Valentin Bru et Jérémy Bonnefoi</p>
+                    <p><a href="https://www.linkedin.com/in/valentin-bru-09506a171/">Valentin Bru</a> et <a href="https://www.linkedin.com/in/j%C3%A9r%C3%A9my-bonnefoi-134569172/">Jérémy Bonnefoi</a></p>
                 </div>
             </footer>
         </div>
