@@ -31,8 +31,9 @@ function Testsubmit(f) {
     var rguser = Testuser(f.reg_username);
     var rgmail = Testmail(f.reg_email);
     var rgpass = Testpass(f.reg_password, f.reg_password_confirm);
+    var rgcheck = Testcheck(f.reg_agree);
 
-    if (rguser === true && rgmail === true && rgpass === true ) {
+    if (rguser === true && rgmail === true && rgpass === true && rgcheck === true  ) {
 
         return true; // OK envoyer
     } else {
@@ -58,22 +59,18 @@ function Testuser(user) {
 
 }
 function Testmail(email) {
-    var regle = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
+    var regle =  /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
-    if (regle.test(email))
+    if (!regle.test(email.value)  )
     {
+        alert("Please enter an email like name@name.com");
+        surligne(email, true);
+        return false;
+    }
+   else{
+       
         surligne(email, false);
         return true;
-
-    } else if (email.value.length < 4) {
-        alert("Please enter a real email");
-        surligne(email, true);
-        return false;
-    } else
-    {
-       
-        surligne(email, true);
-        return false;
     }
 }
 
@@ -94,6 +91,19 @@ function Testpass(pass, pass2) {
 
 }
 
+function Testcheck(check){
+    if (check.checked === false) {
+
+        alert("You have to accept the general conditions");
+        surligne(check, true);
+        
+        return false;
+
+    } else {
+        surligne(check, false);
+        return true;
+    }
+}
 function surligne(champ, erreur)
 {
     if (erreur)

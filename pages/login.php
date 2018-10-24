@@ -61,7 +61,7 @@
                                 
 
                                 <div class="form-group login-group-checkbox">
-                                    <input type="checkbox" class="" id="reg_agree" name="reg_agree">
+                                    <input type="checkbox" class="" id="reg_agree" name="reg_agree" onblur="Testcheck(this)">
                                     <label for="reg_agree">i agree with <a href="#">terms</a></label>
                                 </div>
                             </div>
