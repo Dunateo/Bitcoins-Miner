@@ -19,8 +19,9 @@ window.addEventListener("load", function () {
 
 function Testsubmit(f){
     var lguser = Testuser(f.lg_username);
+    var lgpass = Testpass(f.lg_password);
     
-    if (  lguser === true ) {
+    if (  lguser === true && lgpass === true ) {
         
         return true; // OK envoyer
     } 
@@ -46,6 +47,17 @@ function Testuser(user) {
    }
 
 
+}
+function Testpass(pass){
+    if(pass.value.length < 2){
+        surligne(pass, true);
+      return false;
+    }
+    else{
+       surligne(pass, false);
+      return true;
+        
+    }
 }
 
 function surligne(champ, erreur)

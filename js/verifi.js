@@ -65,7 +65,7 @@ function Testmail(email) {
         surligne(email, false);
         return true;
 
-    } else if (email.value === "") {
+    } else if (email.value.length < 4) {
         alert("Please enter a real email");
         surligne(email, true);
         return false;
@@ -79,14 +79,16 @@ function Testmail(email) {
 
 function Testpass(pass, pass2) {
 
-    if (pass.value !== pass2.value && pass.value === '' || pass2.value === '') {
+    if (pass.value !== pass2.value && pass.value.length < 8) {
 
-        alert("Please enter a password");
-        surligne(user, true);
+        alert("Please enter a password with 8 letters");
+        surligne(pass, true);
+        surligne(pass2, true);
         return false;
 
     } else {
-        surligne(user, false);
+        surligne(pass, false);
+        surligne(pass2, false);
         return true;
     }
 

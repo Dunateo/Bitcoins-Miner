@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="lg_password" class="sr-only">Password</label>
-                                    <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
+                                    <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password" onblur="Testpass(this)">
                                 </div>
                                 <div class="form-group login-group-checkbox">
                                     <input type="checkbox" id="lg_remember" name="lg_remember">
