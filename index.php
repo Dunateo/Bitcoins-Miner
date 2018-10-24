@@ -20,7 +20,7 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
-          <h3 class="masthead-brand">February</h3>
+          <h3 class="masthead-brand">October</h3>
           <nav class="nav nav-masthead justify-content-center">
               <a class="nav-link active" href="./index.php">Home</a>
               <a class="nav-link" href="./pages/login.php">Sign-Up</a>
@@ -30,11 +30,14 @@
       </header>
 
       <main role="main" class="inner cover">
-        <h1 class="cover-heading">February Project.</h1>
-        <p class="lead">This game is our Php February Project.</p>
+        <h1 class="cover-heading">We are happy:</h1>
+        <br>
+        <p class="lead">to present our PHP October 2018 <a href="https://gitlab.com/Dunateo/cir-club.git">Project.</a> It's a game based on Phaser framework and a database.</p>
+        <br>
         <p class="lead">
-            <a href="./pages/connexion.php" class="btn btn-lg btn-secondary">Play</a>
+            <a href="./pages/connexion.php" class="btn btn-lg btn-secondary">Play </a>
         </p>
+        
       </main>
 
       <footer class="mastfoot mt-auto">

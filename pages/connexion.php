@@ -23,7 +23,7 @@
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="masthead mb-auto">
                 <div class="inner">
-                    <h3 class="masthead-brand">February</h3>
+                    <h3 class="masthead-brand">October</h3>
                     <nav class="nav nav-masthead justify-content-center">
                         <a class="nav-link " href="../index.php">Home</a>
                         <a class="nav-link " href="../pages/login.php">Sign-Up</a>
