@@ -29,7 +29,7 @@ if (!$resultat) {
     $req->closeCursor();
     $req = null;
     $bdd = null;
-    header('Refresh: 3; url="../pages/connexion.php"');
+    header('Refresh: 2; url="../pages/connexion.php"');
 } else {
     if ($isPasswordCorrect === TRUE) {
         session_start();
@@ -39,13 +39,13 @@ if (!$resultat) {
         $req->closeCursor();
         $req = null;
         $bdd = null;
-        header('Refresh: 3; url="../pages/play.php"');
+        header('Refresh: 2; url="../pages/play.php"');
     } else {
         echo 'Mauvais identifiant ou mot de passe !';
         $req->closeCursor();
         $req = null;
         $bdd = null;
-        header('Refresh: 3; url="../pages/connexion.php"');
+        header('Refresh: 2; url="../pages/connexion.php"');
     }
 }
 

@@ -1,47 +1,101 @@
 /* 
-<<<<<<< HEAD
+ <<<<<<< HEAD
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
-=======
+ =======
  * Valentin Bru
  * 
->>>>>>> 97b49c556d3010ed4e69de98c1d71ea1be32dc25
+ >>>>>>> 97b49c556d3010ed4e69de98c1d71ea1be32dc25
  */
 
-window.addEventListener("load", function() {
-    window.document.querySelector("#login-form").addEventListener("type", function() {
-        if (window.document.querySelector("#lg_username").value === "" && window.document.querySelector("#lg_username").length >2 && window.document.querySelector("#lg_username").length < 25) {
-            alert("You have to enter the username"); // On affiche un message
-        }
-        else if (window.document.querySelector("#reg_email").value === "" && window.document.querySelector("#reg_email").length >4 && Testmail(window.document.querySelector("#reg_email")=== false)) {
-            alert("Please enter a real email"); // On affiche un message
-        }
-        
-        else if(window.document.querySelector("#reg_username").value === "" && window.document.querySelector("#reg_username").length >2 && window.document.querySelector("#reg_username").length <25 ){
-            alert("You have to enter the username"); // On affiche un message
-        }
-        
-        else{
-             var question = "Souhaitez-vous réellement utiliser l'adresse suivante : " + window.document.querySelector("#i_email").value;
-             if (confirm(question)) {
-                 window.document.querySelector("#form_contact").submit(); // OK envoyer
-             }
-        }
+window.addEventListener("load", function () {
+
+
+
+
+    //register
+    window.document.querySelector("#register-form").addEventListener("click", function () {
+
+
+
+
     }, false);
+
+
 }, false);
 
 
 
-function Testmail(email){
+function Testsubmit(f) {
+    var rguser = Testuser(f.reg_username);
+    var rgmail = Testmail(f.reg_email);
+    var rgpass = Testpass(f.reg_password, f.reg_password_confirm);
+
+    if (rguser === true && rgmail === true && rgpass === true ) {
+
+        return true; // OK envoyer
+    } else {
+
+        alert("Ooops enter all the fields please!");
+        return false;
+    }
+
+}
+
+function Testuser(user) {
+
+    if (user.value.length < 2 || user.value.length > 25)
+    {
+        surligne(user, true);
+        return false;
+    } else
+    {
+        surligne(user, false);
+        return true;
+    }
+
+
+}
+function Testmail(email) {
     var regle = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
- 
-    if(regle.test(email))
-      {
-		return(true);
-      }
+
+    if (regle.test(email))
+    {
+        surligne(email, false);
+        return true;
+
+    } else if (email.value === "") {
+        alert("Please enter a real email");
+        surligne(email, true);
+        return false;
+    } else
+    {
+       
+        surligne(email, true);
+        return false;
+    }
+}
+
+function Testpass(pass, pass2) {
+
+    if (pass.value !== pass2.value && pass.value === '' || pass2.value === '') {
+
+        alert("Please enter a password");
+        surligne(user, true);
+        return false;
+
+    } else {
+        surligne(user, false);
+        return true;
+    }
+
+}
+
+function surligne(champ, erreur)
+{
+    if (erreur)
+        champ.style.backgroundColor = "#fba";
     else
-      {
-		return(false);
-      }
+        champ.style.backgroundColor = "";
 }

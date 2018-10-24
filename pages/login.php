@@ -37,17 +37,17 @@
                 <div class="logo">register</div>
                 <!-- Main Form -->
                 <div class="login-form-1">
-                    <form action="../php/signup.php" method="post" id="login-form" id="register-form" class="text-left">
+                    <form action="../php/signup.php" method="post" id="register-form" class="text-left" onsubmit="return Testsubmit(this)">
                         <div class="login-form-main-message"></div>
                         <div class="main-login-form">
                             <div class="login-group">
                                 <div class="form-group">
                                     <label for="reg_username" class="sr-only">Email address</label>
-                                    <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
+                                    <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username" onblur="Testuser(this)">
                                 </div>
                                 <div class="form-group">
                                     <label for="reg_password" class="sr-only">Password</label>
-                                    <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
+                                    <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password" >
                                 </div>
                                 <div class="form-group">
                                     <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
@@ -56,7 +56,7 @@
 
                                 <div class="form-group">
                                     <label for="reg_email" class="sr-only">Email</label>
-                                    <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
+                                    <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email" onblur="Testmail(this)">
                                 </div>
                                 
 

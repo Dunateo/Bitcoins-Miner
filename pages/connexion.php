@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-        <script src="../js/verifi.js"></script>
+        <script src="../js/verifLg.js"></script>
     </head>
 
     <body class="text-center">
@@ -37,13 +37,13 @@
                 <div class="logo">login</div>
                 <!-- Main Form -->
                 <div class="login-form-1">
-                    <form action="../php/loginn.php" method="post" id="login-form" class="text-left" enctype="multipart/form-data">
+                    <form action="../php/loginn.php" method="post" id="login-form" class="text-left" enctype="multipart/form-data" onsubmit="return Testsubmit(this)">
                         <div class="login-form-main-message"></div>
                         <div class="main-login-form">
                             <div class="login-group">
                                 <div class="form-group">
                                     <label for="lg_username" class="sr-only">Username</label>
-                                    <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
+                                    <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username" onblur="Testuser(this)">
                                 </div>
                                 <div class="form-group">
                                     <label for="lg_password" class="sr-only">Password</label>
