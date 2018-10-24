@@ -48,7 +48,7 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
                     <nav class="nav nav-masthead justify-content-center">
                         <a class="nav-link " href="../index.php">Home</a>
                         <a class="nav-link " href="../pages/login.php">Sign-Up</a>
-                        <a class="nav-link active" href="../pages/connexion.php">Connexion</a>
+                        <a class="nav-link active" href="../pages/connexion.php">Sign-In</a>
                     </nav>
                 </div>
             </header>

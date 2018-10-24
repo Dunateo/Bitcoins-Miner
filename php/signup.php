@@ -39,7 +39,7 @@ try {
                     <nav class="nav nav-masthead justify-content-center">
                         <a class="nav-link " href="../index.php">Home</a>
                         <a class="nav-link active" href="../pages/login.php">Sign-Up</a>
-                        <a class="nav-link " href="../pages/connexion.php">Connexion</a>
+                        <a class="nav-link " href="../pages/connexion.php">Sign-In</a>
                     </nav>
                 </div>
             </header>
