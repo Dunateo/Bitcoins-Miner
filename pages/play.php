@@ -25,50 +25,46 @@ and open the template in the editor.
         <script>
             var config = {
                 type: Phaser.AUTO,
-                width: 1000,
-                height: 600,
-                physics: {
-                    default: 'arcade',
-                    arcade: {
-                        gravity: {y: 200}
-                    }
-                },
+                parent: 'phaser-example',
                 scene: {
                     preload: preload,
-                    create: create
+                    create: create,
+
                 }
             };
 
             var game = new Phaser.Game(config);
-
+            var text;
+            var bit = 0;
             function preload()
             {
-                this.load.image('sky', '../assets/sky.png');
-
-
-                this.load.image('logo', '../assets/meteorite.png');
-                this.load.image('red', '../assets/particules.png');
+                this.load.image('bitcoin', '../assets/bitcoin.png');
             }
 
             function create()
             {
-                this.add.image(400, 300, 'sky');
+                text = this.add.text(320, 320);
+                var sprite = this.add.sprite(450, 400, 'bitcoin').setInteractive();
+                sprite.on('pointerdown', function (pointer) {
 
-                var particles = this.add.particles('red');
-
-                var emitter = particles.createEmitter({
-                    speed: 100,
-                    scale: {start: 1, end: 0},
-                    blendMode: 'ADD'
+                    this.setScale(0.9, 0.9);
+                    bit = bit + 1;
+                    text.setText('Bitcoins: ' + bit);
                 });
 
-                var logo = this.physics.add.image(400, 100, 'logo');
+                sprite.on('pointerout', function (pointer) {
 
-                logo.setVelocity(100, 200);
-                logo.setBounce(1, 1);
-                logo.setCollideWorldBounds(true);
+                    this.setScale(1, 1);
 
-                emitter.startFollow(logo);
+                });
+
+                sprite.on('pointerup', function (pointer) {
+
+                    this.setScale(1, 1);
+
+                });
+                text = this.add.text(16, 16, 'Bitcoins: 0', {fontSize: '32px', fill: 'white'});
+
             }
         </script>
 

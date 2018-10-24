@@ -14,7 +14,7 @@ window.addEventListener("load", function() {
         if (window.document.querySelector("#lg_username").value === "" && window.document.querySelector("#lg_username").length >2 && window.document.querySelector("#lg_username").length < 25) {
             alert("You have to enter the username"); // On affiche un message
         }
-        else if (window.document.querySelector("#reg_email").value === "" && window.document.querySelector("#reg_email").length >4) {
+        else if (window.document.querySelector("#reg_email").value === "" && window.document.querySelector("#reg_email").length >4 && Testmail(window.document.querySelector("#reg_email")=== false)) {
             alert("Please enter a real email"); // On affiche un message
         }
         
@@ -30,3 +30,18 @@ window.addEventListener("load", function() {
         }
     }, false);
 }, false);
+
+
+
+function Testmail(email){
+    var regle = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
+ 
+    if(regle.test(email))
+      {
+		return(true);
+      }
+    else
+      {
+		return(false);
+      }
+}
