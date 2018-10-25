@@ -10,6 +10,8 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
+$reqpseudo = $bdd->prepare("SELECT * FROM login WHERE pseudo = ?");
+$reqmail = $bdd->prepare("SELECT * FROM login WHERE mail = ?");
 ?>
 
 <!doctype html>
@@ -49,20 +51,42 @@ try {
 //test du password 
                 if ($form['reg_password'] === $form['reg_password_confirm'] && $form['reg_password'] != '') {
 
-//recupération des username 
+//recupération des username
                     $user = $form['reg_username'];
-                    $pass = password_hash($form['reg_password'], PASSWORD_DEFAULT);
-                    $email = $form['reg_email'];
-                    $req = $bdd->prepare('INSERT INTO login(pseudo, password, mail) VALUES(:pseudo, :password, :mail)');
-                    $req->execute(array(
-                        'pseudo' => $user,
-                        'password' => $pass,
-                        'mail' => $email));
-                    $req->closeCursor();
-                    $req = null;
-                    $bdd = null;
-                    echo 'Vous êtes inscrit ! Connectez-vous';
-                    header('Refresh: 3; url="../pages/connexion.php"');
+                    $reqpseudo->execute(array($user));
+                    $pseudoexist = $reqpseudo->rowcount();
+                    if ($pseudoexist == 0) {
+                        $email = $form['reg_email'];
+                        $reqmail->execute(array($email));
+                        $mailexist = $reqmail->rowcount();
+                        if ($mailexist == 0) {
+                            $pass = password_hash($form['reg_password'], PASSWORD_DEFAULT);
+
+                            $req = $bdd->prepare('INSERT INTO login(pseudo, password, mail) VALUES(:pseudo, :password, :mail)');
+                            $req->execute(array(
+                                'pseudo' => $user,
+                                'password' => $pass,
+                                'mail' => $email));
+                            $req->closeCursor();
+                            $reqpseudo->closeCursor();
+                            $reqmail->closeCursor();
+
+                            $req = null;
+                            $bdd = null;
+                            echo 'Vous êtes inscrit ! Connectez-vous';
+                            header('Refresh: 3; url="../pages/connexion.php"');
+                        } else {
+                            $reqpseudo->closeCursor();
+                            $reqmail->closeCursor();
+                            echo 'Ce mail ' . $email . ' existe déja';
+                            header('Refresh: 2; url="../pages/login.php"');
+                        }
+                    } else {
+                        $reqpseudo->closeCursor();
+                        $reqmail->closeCursor();
+                        echo 'Ce pseudo ' . $user . ' existe déja';
+                        header('Refresh: 2; url="../pages/login.php"');
+                    }
                 } else {
                     echo 'Vous n avez pas tapé le même mdp';
                     header('Refresh: 2; url="../pages/login.php"');
