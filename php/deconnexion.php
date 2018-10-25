@@ -1,28 +1,18 @@
 <?php
-/*
+
+/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 session_start();
-$form = $_POST;
-$user = $form['lg_username'];
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base 
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
-
-//on selectionne ce que l'on veut 
-$req = $bdd->prepare('SELECT id_login, password FROM login WHERE pseudo = :pseudo');
-$req->execute(array(
-    'pseudo' => $user));
-$resultat = $req->fetch();
-//on teste notre password 
-$isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']);
-?>
-
-<!doctype html>
+ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
+    session_destroy();
+    $_SESSION['id'] = null;
+    $_SESSION['pseudo'] = null;
+ }
+ ?>
+ <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -30,7 +20,7 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
         <meta name="description" content="Welcome on The game">
         <meta name="author" content="Valetin Bru et Jéremy Bonnefoi">
 
-        <title>lOGIN...</title>
+        <title>Members</title>
 
         <!-- Bootstrap core CSS -->
         <link href="../bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,41 +39,22 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
                     <nav class="nav nav-masthead justify-content-center">
                         <a class="nav-link " href="../index.php">Home</a>
                         <a class="nav-link " href="../pages/login.php">Sign-Up</a>
-                        <a class="nav-link active" href="../pages/connexion.php">Sign-In</a>
+                        <a class="nav-link " href="../pages/connexion.php">Sign-In</a>
                     </nav>
                 </div>
             </header>
 
             <section>
                 <?PHP
-                if (!$resultat) {
-                    echo 'Mauvais identifiant ou mot de passe !';
-                    $req->closeCursor();
-                    $req = null;
-                    $bdd = null;
-                    header('Refresh: 3; url="../pages/connexion.php"');
-                } else {
-                    if ($isPasswordCorrect === TRUE) {
-                       
-                        $_SESSION['id'] = $resultat['id_login'];
-                        $_SESSION['pseudo'] = $user;
-                        echo 'Vous êtes connecté !'.$_SESSION['pseudo'];
-                        $req->closeCursor();
-                        $req = null;
-                        $bdd = null;
-                        header('Refresh: 3; url="../pages/members.php"');
-                    } else {
-                        echo 'Mauvais identifiant ou mot de passe !';
-                        $req->closeCursor();
-                        $req = null;
-                        $bdd = null;
-                        header('Refresh: 3; url="../pages/connexion.php"');
+                    if($_SESSION['id'] === null && $_SESSION['pseudo'] === null){
+                        echo 'You are log out';
                     }
-                }
+                    header('Refresh: 3; url="../pages/connexion.php"');
                 ?>
-                <br>
-                <img src="../pictures/loader4.gif" alt="loader"/>
+                
+               
             </section>
+            
 
 
 
@@ -104,7 +75,3 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
         <script src="../bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
-
-
-
-
