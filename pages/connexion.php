@@ -1,4 +1,11 @@
 
+<?PHP
+session_start();
+if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
+    header('Refresh: 1; url="../pages/members.php"');
+}else{    
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -28,6 +35,7 @@
                         <a class="nav-link " href="../index.php">Home</a>
                         <a class="nav-link " href="../pages/login.php">Sign-Up</a>
                         <a class="nav-link active" href="../pages/connexion.php">Sign-In</a>
+                        <a class="nav-link" href="../pages/members.php"><i class="far fa-user"></i></a>
                     </nav>
                 </div>
             </header>
@@ -82,3 +90,6 @@
         <script src="../bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
+<?PHP
+}
+?>

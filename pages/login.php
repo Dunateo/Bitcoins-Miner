@@ -28,6 +28,7 @@
                         <a class="nav-link " href="../index.php">Home</a>
                         <a class="nav-link active" href="../pages/login.php">Sign-Up</a>
                         <a class="nav-link" href="../pages/connexion.php">Sign-In</a>
+                        <a class="nav-link" href="../pages/members.php"><i class="far fa-user"></i></a>
                     </nav>
                 </div>
             </header>

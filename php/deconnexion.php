@@ -51,7 +51,8 @@ session_start();
                     }
                     header('Refresh: 3; url="../pages/connexion.php"');
                 ?>
-                
+                 <br>
+                <img src="../pictures/loader4.gif" alt="loader"/>
                
             </section>
             
