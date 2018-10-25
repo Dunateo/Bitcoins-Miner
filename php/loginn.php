@@ -66,7 +66,7 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
                         session_start();
                         $_SESSION['id'] = $resultat['id_login'];
                         $_SESSION['pseudo'] = $user;
-                        echo 'Vous êtes connecté ! everygoooo';
+                        echo 'Vous êtes connecté !'.$_SESSION['pseudo'];
                         $req->closeCursor();
                         $req = null;
                         $bdd = null;
@@ -98,7 +98,7 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>');</script>
         <script src="../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
         <script src="../bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
     </body>
