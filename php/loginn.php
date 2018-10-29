@@ -14,7 +14,7 @@ try {
 }
 
 //on selectionne ce que l'on veut 
-$req = $bdd->prepare('SELECT id_login, password FROM login WHERE pseudo = :pseudo');
+$req = $bdd->prepare('SELECT * FROM login WHERE pseudo = :pseudo');
 $req->execute(array(
     'pseudo' => $user));
 $resultat = $req->fetch();
@@ -67,11 +67,20 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
                        
                         $_SESSION['id'] = $resultat['id_login'];
                         $_SESSION['pseudo'] = $user;
+                        $_SESSION['hamster'] = $resultat['hamster'] ;
+                        $_SESSION['bitcoins'] = $resultat['bitcoins'];
+                        $_SESSION['raspi'] = $resultat['raspi'];
+                        $_SESSION['pcportable'] = $resultat['pcportable'];
+                        $_SESSION['rigperso'] = $resultat['rigerso'];
+                        $_SESSION['salle'] = $resultat['salle_info'];
+                        $_SESSION['buanderie'] = $resultat['buanderie'];
+                        $_SESSION['serveur'] = $resultat['serveur_islandais'];
+                        $_SESSION['iss'] = $resultat['iss'];
                         echo 'Vous êtes connecté !'.$_SESSION['pseudo'];
                         $req->closeCursor();
                         $req = null;
                         $bdd = null;
-                        header('Refresh: 3; url="../pages/members.php"');
+                        header('Refresh: 3; url="../pages/play.php"');
                     } else {
                         echo 'Mauvais identifiant ou mot de passe !';
                         $req->closeCursor();

@@ -19,7 +19,7 @@ and open the template in the editor.
 
 
         <?php
-        // put your code here
+        session_start();
         ?>
 
         <script>
@@ -42,10 +42,10 @@ and open the template in the editor.
             
             var Htext;
             //Nombre de Bitcoins Total
-            var bit = 0;
+            var bit = <?php echo $_SESSION['bitcoins']; ?> ;
             //Nombre de Mines
-            var NBhamster = 0;
-            var NBraspy = 0;
+            var NBhamster = <?php echo $_SESSION['hamster']; ?>;
+            var NBraspy = <?php echo $_SESSION['raspi']; ?>;
 
             var prixhasmter = 20;
             var prixraspy = 100;
@@ -166,6 +166,8 @@ and open the template in the editor.
                 bit=bit+NBraspy*5;
             }
             }
+            
+            
         </script>
 
 
