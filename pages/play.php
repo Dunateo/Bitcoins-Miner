@@ -20,6 +20,11 @@ and open the template in the editor.
 
         <?php
         session_start();
+        try {
+            $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base 
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
         ?>
 
         <script>
@@ -37,30 +42,31 @@ and open the template in the editor.
 
             var game = new Phaser.Game(config);
             var text;
-            var cmpH=0;
-            var cmpR=0;
-            
+            var cmpH = 0;
+            var cmpR = 0;
+
             var Htext;
             //Nombre de Bitcoins Total
-            var bit = <?php echo $_SESSION['bitcoins']; ?> ;
+            var bit = <?php echo $_SESSION['bitcoins']; ?>;
             //Nombre de Mines
             var NBhamster = <?php echo $_SESSION['hamster']; ?>;
             var NBraspy = <?php echo $_SESSION['raspi']; ?>;
 
             var prixhasmter = 20;
             var prixraspy = 100;
-            
-            var Vraspy= 5;
+
+            var Vraspy = 5;
 
 
             var timehamster = 3;
-            var timeraspy=10;
+            var timeraspy = 10;
             var timedEvent;
             function preload()
             {
                 this.load.image('bitcoin', '../assets/bitcoin.png');
                 this.load.image('hamster', '../assets/hamster.png');
                 this.load.image('raspy', '../assets/raspy.png');
+                this.load.image('save', '../assets/save.png');
             }
 
             function create()
@@ -70,6 +76,7 @@ and open the template in the editor.
                 var sprite = this.add.sprite(450, 400, 'bitcoin').setInteractive();
                 var Bhamster = this.add.sprite(975, 56, 'hamster').setInteractive();
                 var Braspy = this.add.sprite(975, 150, 'raspy').setInteractive();
+                var Bsave = this.add.sprite(975, 400, 'save').setInteractive();
 
                 //Bouton Bitcoin
                 sprite.on('pointerdown', function (pointer) {
@@ -90,6 +97,34 @@ and open the template in the editor.
                 });
                 //Texte nombre de Bitcoin
                 text = this.add.text(16, 16, 'Bitcoins: 0', {fontSize: '32px', fill: 'white'});
+
+                //Bouton Save avec la requête ajax
+                Bsave.on('pointerdown', function (pointer) {
+
+                    this.setTint(0x7878ff);
+                    
+                    var xhr = getXMLHttpRequest();
+                     
+
+                    // Now get the value from user and pass it to
+                    // server script.
+
+                    xhr.open("POST", "../php/ajax.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.send(bit);
+                
+
+                });
+                Bsave.on('pointerout', function (pointer) {
+
+                    this.clearTint();
+
+                });
+                Bsave.on('pointerup', function (pointer) {
+
+                    this.clearTint();
+
+                });
 
                 //Boutton Hamster
                 Bhamster.on('pointerdown', function (pointer) {
@@ -141,10 +176,10 @@ and open the template in the editor.
 
                 });
                 var Rtext = this.add.text(770, 129, '0', {fontSize: '30px', fill: 'white'});
-                this.add.text(975,149, '100B Raspy', {fontSize: '20px', fill: 'white'});
-                
-                
-                
+                this.add.text(975, 149, '100B Raspy', {fontSize: '20px', fill: 'white'});
+
+
+
                 timedEvent = this.time.addEvent({delay: 500, callback: onEvent, callbackScope: this, loop: true});
             }
             function update()
@@ -154,20 +189,43 @@ and open the template in the editor.
 
             }
             //Chaque seconde
-            function onEvent() {   
-            cmpH=cmpH+1;
-            if(cmpH===timehamster){
-                cmpH=0;
-                bit=bit+NBhamster;
+            function onEvent() {
+                cmpH = cmpH + 1;
+                if (cmpH === timehamster) {
+                    cmpH = 0;
+                    bit = bit + NBhamster;
+                }
+                cmpR = cmpR + 1;
+                if (cmpR === timeraspy) {
+                    cmpR = 0;
+                    bit = bit + NBraspy * 5;
+                }
+
+
             }
-            cmpR=cmpR+1;
-            if(cmpR===timeraspy){
-                cmpR=0;
-                bit=bit+NBraspy*5;
-            }
-            }
-            
-            
+            function getXMLHttpRequest(){
+                var xhr=null;
+                //ca veut dire que le navigateur prend en compte le ajax
+                if(window.XMLHttpRequest || window.ActiveXObject){
+                    if(window.ActiveXObject){
+                        try{
+                            xhr = new ActiveXObject("Msxml2.XMLHTTP");
+                        }catch(e){
+                            xhr = new ActiveXObject("Microsoft.XMLHTTP")
+                        }
+                    }else{
+                        xhr = new XMLHttpRequest();
+                    }
+                }else{
+                    alert("Tu casse les couilles avec ton vieux navigateur, bouge de la!");
+                    return null;
+                }
+                return xhr;
+    
+}
+          
+
+
         </script>
 
 
