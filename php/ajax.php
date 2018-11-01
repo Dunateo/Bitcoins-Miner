@@ -14,9 +14,14 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 $bitcoins = $form['bit'];
-$req = $bdd->prepare('INSERT INTO login(bitcoins) VALUES(:bitcoins) WHERE pseudo = :pseudo');
+
+if(isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
+    $user = $_SESSION['id'];
+    $_SESSION['bitcoins'] = $bitcoins;
+    $req = $bdd->prepare('UPDATE `login` SET `bitcoins`= :bitcoins WHERE `login`.`id_login` = :pseudo');
                             $req->execute(array(
-                                'pseudo' => $_SESSION['pseudo'],
+                                'pseudo' => $user,
                                 'bitcoins' => $bitcoins));
 $req->closeCursor();                           
                             
+}

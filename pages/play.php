@@ -104,14 +104,14 @@ and open the template in the editor.
                     this.setTint(0x7878ff);
                     
                     var xhr = getXMLHttpRequest();
-                     
+                    var send = "bit="+bit;
 
                     // Now get the value from user and pass it to
                     // server script.
 
                     xhr.open("POST", "../php/ajax.php", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    xhr.send(bit);
+                    xhr.send(send);
                 
 
                 });
