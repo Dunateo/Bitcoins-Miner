@@ -14,13 +14,19 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 $bitcoins = $form['bit'];
+$ham = $form['ham'];
+$raspi = $form['raspi'];
 
 if(isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
     $user = $_SESSION['id'];
     $_SESSION['bitcoins'] = $bitcoins;
-    $req = $bdd->prepare('UPDATE `login` SET `bitcoins`= :bitcoins WHERE `login`.`id_login` = :pseudo');
+    $_SESSION['hamster'] = $ham;
+    $_SESSION['raspi'] = $raspi;
+    $req = $bdd->prepare('UPDATE `login` SET `bitcoins`= :bitcoins, `hamster` =:hamster, `raspi` =:raspi WHERE `login`.`id_login` = :pseudo');
                             $req->execute(array(
                                 'pseudo' => $user,
+                                'hamster' => $ham,
+                                'raspi' => $raspi,
                                 'bitcoins' => $bitcoins));
 $req->closeCursor();                           
                             

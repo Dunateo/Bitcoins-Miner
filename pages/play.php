@@ -39,7 +39,6 @@ and open the template in the editor.
                     update: update
                 }
             };
-
             var game = new Phaser.Game(config);
             var text;
             var cmpH = 0;
@@ -102,17 +101,28 @@ and open the template in the editor.
                 Bsave.on('pointerdown', function (pointer) {
 
                     this.setTint(0x7878ff);
-                    
+
                     var xhr = getXMLHttpRequest();
-                    var send = "bit="+bit;
+                    var send = "bit=" + bit + "&ham=" + NBhamster + "&raspi=" + NBraspy;
+                    console.log(send);
 
                     // Now get the value from user and pass it to
                     // server script.
+                    xhr.onreadystatechange = function () {
+                        /* Si l'état = terminé */
+                        if (xhr.readyState === 4) {
+                            //Nombre de Bitcoins Total
+                            var bit = <?php echo $_SESSION['bitcoins']; ?>;
+                            //Nombre de Mines
+                            var NBhamster = <?php echo $_SESSION['hamster']; ?>;
+                            var NBraspy = <?php echo $_SESSION['raspi']; ?>;
+                        }
 
+                    };
                     xhr.open("POST", "../php/ajax.php", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send(send);
-                
+
 
                 });
                 Bsave.on('pointerout', function (pointer) {
@@ -203,27 +213,27 @@ and open the template in the editor.
 
 
             }
-            function getXMLHttpRequest(){
-                var xhr=null;
+            function getXMLHttpRequest() {
+                var xhr = null;
                 //ca veut dire que le navigateur prend en compte le ajax
-                if(window.XMLHttpRequest || window.ActiveXObject){
-                    if(window.ActiveXObject){
-                        try{
+                if (window.XMLHttpRequest || window.ActiveXObject) {
+                    if (window.ActiveXObject) {
+                        try {
                             xhr = new ActiveXObject("Msxml2.XMLHTTP");
-                        }catch(e){
+                        } catch (e) {
                             xhr = new ActiveXObject("Microsoft.XMLHTTP")
                         }
-                    }else{
+                    } else {
                         xhr = new XMLHttpRequest();
                     }
-                }else{
+                } else {
                     alert("Tu casse les couilles avec ton vieux navigateur, bouge de la!");
                     return null;
                 }
                 return xhr;
-    
-}
-          
+
+            }
+
 
 
         </script>
