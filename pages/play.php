@@ -20,11 +20,6 @@ and open the template in the editor.
 
         <?php
         session_start();
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base 
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
         ?>
 
         <script>
@@ -66,6 +61,7 @@ and open the template in the editor.
                 this.load.image('hamster', '../assets/hamster.png');
                 this.load.image('raspy', '../assets/raspy.png');
                 this.load.image('save', '../assets/save.png');
+                this.load.image('part', '../assets/bit.png');
             }
 
             function create()
@@ -76,12 +72,18 @@ and open the template in the editor.
                 var Bhamster = this.add.sprite(975, 56, 'hamster').setInteractive();
                 var Braspy = this.add.sprite(975, 150, 'raspy').setInteractive();
                 var Bsave = this.add.sprite(975, 400, 'save').setInteractive();
+                var particles = this.add.particles('part');
+
+
+
 
                 //Bouton Bitcoin
                 sprite.on('pointerdown', function (pointer) {
 
                     this.setScale(0.9, 0.9);
                     bit = bit + 1;
+                    //particules
+                    
 
                 });
                 sprite.on('pointerout', function (pointer) {
