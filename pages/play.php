@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Play</title>
         <script src="../phaser-3.15.1/dist/phaser-arcade-physics.min.js"></script>
 
         <link href="../css/index.css" rel="stylesheet">
@@ -48,8 +48,8 @@ and open the template in the editor.
             var NBpcport = <?php echo $_SESSION['pcportable']; ?>;
             var NBrig = <?php echo $_SESSION['rigperso']; ?>;
             var NBsalle = <?php echo $_SESSION['salle']; ?>;
-            var NBbuanderie = <?php echo $_SESSION['buanderie']; ?>;
-            var NBserveur = <?php echo $_SESSION['serveur']; ?>;
+            var NBbuand = <?php echo $_SESSION['buanderie']; ?>;
+            var NBserv = <?php echo $_SESSION['serveur']; ?>;
             
             
             var prixhasmter = 20;
