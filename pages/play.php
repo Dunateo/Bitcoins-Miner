@@ -40,6 +40,12 @@ and open the template in the editor.
             var cmpR = 0;
 
             var Htext;
+            var Rtext;
+            var PCtext;
+            var RGtext;
+            var Stext;
+            var Btext;
+            var SEtext;
             //Nombre de Bitcoins Total
             var bit = <?php echo $_SESSION['bitcoins']; ?>;
             //Nombre de Mines
@@ -89,7 +95,7 @@ and open the template in the editor.
                 this.load.image('salle', '../assets/salle.png');
                 this.load.image('buand', '../assets/buanderie.png');
                 this.load.image('serv', '../assets/serveur.png');
-                
+                this.load.image('fond', '../assets/fond.jpg');
                 this.load.image('save', '../assets/save.png');
                
             }
@@ -98,6 +104,7 @@ and open the template in the editor.
             {
                 //Text en haut à gauche
                 text = this.add.text(320, 320);
+                this.add.image(600,400,'fond');
                 var sprite = this.add.sprite(450, 400, 'bitcoin').setInteractive();
                 var Bhamster = this.add.sprite(975, 56, 'hamster').setInteractive();
                 var Braspy = this.add.sprite(975, 150, 'raspy').setInteractive();
@@ -364,6 +371,13 @@ and open the template in the editor.
             {
                 //Actualisation du texte
                 text.setText('Bitcoins: ' + bit);
+                Htext.setText(NBhamster);
+                /*Rtext.setText(NBraspy);
+                PCtext.setText(NBpcport);
+                RGtext.setText(NBrig);
+                Stext.setText(NBsalle);
+                Btext.setText(NBbuand);
+                SEtext.setText(NBserv);*/
 
             }
             //Chaque seconde
