@@ -20,6 +20,7 @@ and open the template in the editor.
 
         <?php
         session_start();
+        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
         ?>
 
         <script>
@@ -420,8 +421,12 @@ and open the template in the editor.
 
         </script>
 
-
+      
 
 
     </body>
 </html>
+  <?php }else{
+            header('Refresh: 0; url="../pages/connexion.php"');
+        }
+        ?>

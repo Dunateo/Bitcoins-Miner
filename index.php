@@ -37,7 +37,7 @@
         <p class="lead">to present our PHP October 2018 <a href="https://gitlab.com/Dunateo/cir-club.git">Project.</a> It's a game based on Phaser framework and a database.</p>
         <br>
         <p class="lead">
-            <a href="./pages/connexion.php" class="btn btn-lg btn-secondary">Play </a>
+            <a href="./pages/play.php" class="btn btn-lg btn-secondary">Play </a>
         </p>
         
       </main>

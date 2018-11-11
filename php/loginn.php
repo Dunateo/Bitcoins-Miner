@@ -80,7 +80,7 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
                         $req->closeCursor();
                         $req = null;
                         $bdd = null;
-                        header('Refresh: 3; url="../pages/play.php"');
+                        header('Refresh: 3; url="../pages/members.php"');
                     } else {
                         echo 'Mauvais identifiant ou mot de passe !';
                         $req->closeCursor();
