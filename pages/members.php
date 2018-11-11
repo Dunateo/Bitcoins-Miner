@@ -75,7 +75,7 @@ $resultat = $req->fetch();
                 <br>
                 <br>
                 <a type="button" class="btn btn-dark" href="../php/deconnexion.php"> Log out ?</a>
-                <a type="button" class="btn btn-dark" href="../pages/classement.php"> Classement</a>
+                <a type="button" class="btn btn-dark" href="../pages/classement.php"> Ranking</a>
            
             </section>
             

@@ -2,7 +2,7 @@
 <?PHP
 session_start();
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {
-    header('Refresh: 1; url="../pages/members.php"');
+    header('Refresh: 0; url="../pages/members.php"');
 }else{    
 ?>
 
