@@ -141,7 +141,9 @@ and open the template in the editor.
                     this.setTint(0x7878ff);
 
                     var xhr = getXMLHttpRequest();
-                    var send = "bit=" + bit + "&ham=" + NBhamster + "&raspi=" + NBraspy;
+                    var debut = "bit=" + bit + "&ham=" + NBhamster + "&raspi=" + NBraspy;
+                    var reste = "&pc="+NBpcport+"&rig="+NBrig+"&salle="+NBsalle+"&buand="+NBbuand+"&serv="+NBserv;
+                    var send = debut+reste;
                     console.log(send);
 
                     // Now get the value from user and pass it to
