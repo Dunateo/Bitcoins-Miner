@@ -9,15 +9,13 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title>Play</title>
         <script src="../phaser-3.15.1/dist/phaser-arcade-physics.min.js"></script>
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
         <link href="../css/index.css" rel="stylesheet">
         <link href="../css/play.css" rel="stylesheet">
 
     </head>
     <body class="text-center">
-
-
-
+        <a class="nav-link" href="../index.php"><i class="fab fa-apple"></i> </a>
         <?php
         session_start();
         if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])) {

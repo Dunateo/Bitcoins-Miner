@@ -49,7 +49,7 @@ session_start();
                     if($_SESSION['id'] === null && $_SESSION['pseudo'] === null){
                         echo 'You are log out';
                     }
-                    header('Refresh: 3; url="../pages/connexion.php"');
+                    header('Refresh: 2; url="../pages/connexion.php"');
                 ?>
                  <br>
                 <img src="../pictures/loader4.gif" alt="loader"/>
