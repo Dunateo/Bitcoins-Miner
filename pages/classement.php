@@ -12,7 +12,7 @@
 
         <!-- Bootstrap core CSS -->
         <link href="../bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/index.css" rel="stylesheet">
+        <link href="../css/Index.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -37,7 +37,7 @@
 
             <?php
             try {
-            $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base 
+            $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base  //connexion à la base 
             } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
             }

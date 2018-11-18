@@ -16,7 +16,7 @@ class bdd {
     function __construct() {
         
         try {
-            $this->bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base 
+            $this->bdd = new PDO("mysql:host=mysql-bitcoinsminer.alwaysdata.net;dbname=bitcoinsminer_bit;charset=utf8;port:3306","170643","Circlub2018"); //connexion à la base  //connexion à la base 
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }

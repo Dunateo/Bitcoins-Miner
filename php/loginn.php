@@ -8,7 +8,7 @@ session_start();
 $form = $_POST;
 $user = $form['lg_username'];
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base 
+    $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base  //connexion à la base 
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
@@ -34,7 +34,7 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
 
         <!-- Bootstrap core CSS -->
         <link href="../bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/index.css" rel="stylesheet">
+        <link href="../css/Index.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
 
@@ -61,7 +61,7 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
                     $req->closeCursor();
                     $req = null;
                     $bdd = null;
-                    header('Refresh: 3; url="../pages/connexion.php"');
+                    header('Refresh: 1; url="../pages/connexion.php"');
                 } else {
                     if ($isPasswordCorrect === TRUE) {
                        
@@ -80,13 +80,13 @@ $isPasswordCorrect = password_verify($form['lg_password'], $resultat['password']
                         $req->closeCursor();
                         $req = null;
                         $bdd = null;
-                        header('Refresh: 3; url="../pages/members.php"');
+                        header('Refresh: 1; url="../pages/members.php"');
                     } else {
                         echo 'Mauvais identifiant ou mot de passe !';
                         $req->closeCursor();
                         $req = null;
                         $bdd = null;
-                        header('Refresh: 3; url="../pages/connexion.php"');
+                        header('Refresh: 1; url="../pages/connexion.php"');
                     }
                 }
                 ?>

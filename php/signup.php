@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 $form = $_POST;
+
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base 
 } catch (Exception $e) {
@@ -26,7 +27,7 @@ $reqmail = $bdd->prepare("SELECT * FROM login WHERE mail = ?");
 
         <!-- Bootstrap core CSS -->
         <link href="../bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/index.css" rel="stylesheet">
+        <link href="../css/Index.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
 
@@ -49,7 +50,7 @@ $reqmail = $bdd->prepare("SELECT * FROM login WHERE mail = ?");
             <section>
                 <?PHP
 //test du password 
-                if ($form['reg_password'] === $form['reg_password_confirm'] && $form['reg_password'] != '') {
+                if ($form['reg_password'] === $form['reg_password_confirm'] && $form['reg_password'] != '' ) {
 
 //recupération des username
                     $user = $form['reg_username'];
@@ -74,7 +75,7 @@ $reqmail = $bdd->prepare("SELECT * FROM login WHERE mail = ?");
                             $req = null;
                             $bdd = null;
                             echo 'Vous êtes inscrit ! Connectez-vous';
-                            header('Refresh: 3; url="../pages/connexion.php"');
+                            header('Refresh: 2; url="../pages/connexion.php"');
                         } else {
                             $reqpseudo->closeCursor();
                             $reqmail->closeCursor();

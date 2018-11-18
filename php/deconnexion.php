@@ -24,7 +24,7 @@ session_start();
 
         <!-- Bootstrap core CSS -->
         <link href="../bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/index.css" rel="stylesheet">
+        <link href="../css/Index.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
 

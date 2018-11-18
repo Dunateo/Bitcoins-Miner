@@ -9,7 +9,7 @@
 session_start();
 $form = $_POST;
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base 
+     $bdd = new PDO('mysql:host=localhost;dbname=bitcoin;charset=utf8', 'root', ''); //connexion à la base  //connexion à la base 
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
