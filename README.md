@@ -3,8 +3,7 @@ October php project , it's a Cookie Clicker like based on Phaser framework and a
 
 the subject was "Create a web site on the topic you want"
 
-Specifications:
-
+## Specifications:
 [x] A Database
 [x] A Class "classic"
 [x] A Manager Class to manage the classic one
