@@ -7,7 +7,7 @@ the subject was "Create a web site on the topic you want"
 - [x] A Database
 - [x] A Class "classic"
 - [x] A Manager Class to manage the classic one
-- [x] Use Ajax and de XMLHttpRequest
+- [x] Use Ajax and XMLHttpRequest
 - [x] If you want to add CSS use bootstrap 
 
 ## The Theme:
